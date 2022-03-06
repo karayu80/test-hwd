@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: DOCKER_USER_ID/flask
+  production:
+    image: DOCKER_USER_ID/flask:BUILD_NUMBER
+    command: python hwd.py
+    volumes:
+    - .:/code
+    ports:
+    - "81:81"
